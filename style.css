@@ -146,11 +146,11 @@
 }
 
 @media (max-width: 600px) {
-    .chat-input-send-button {
-        font-size: 28px; /* Adjust icon size inside the button */
+    .chat-input-send-button svg {
+        width: 24px;  /* Increase icon width */
+        height: 24px; /* Increase icon height */
     }
 }
-
 
 /* Chat Footer */
 .chat-layout .chat-footer {
