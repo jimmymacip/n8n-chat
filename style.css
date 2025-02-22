@@ -36,8 +36,7 @@
     --chat--transition-duration: .15s;
     --chat--window--width: 400px;
     --chat--window--height: 600px;
-    --chat--textarea--height: 50px;
-    --chat--textarea--padding-right: 3rem;
+    --chat--textarea--height: 40px; /* Reduced height for better alignment */
 }
 
 /* Chat Header Styling */
@@ -92,46 +91,51 @@
     padding: var(--chat--spacing);
 }
 
-/* Chat Input Box */
+/* Chat Input Box - INLINE FIX */
 .chat-inputs {
     display: flex;
     align-items: center;
-    position: relative;
     width: 100%;
+    background: var(--chat--color-white);
+    border-radius: var(--chat--border-radius);
+    padding: 5px;
+    border: 1px solid var(--chat--color-light-shade-100);
 }
 
 .chat-inputs textarea {
     font-family: inherit;
     font-size: inherit;
-    width: 100%;
-    border: 0;
+    flex: 1;
+    border: none;
     border-radius: var(--chat--border-radius);
-    padding: 0.8rem;
-    padding-right: 3rem;
+    padding: 0.5rem;
     min-height: var(--chat--textarea--height);
     background: var(--chat--input--background, white);
     resize: none;
     color: var(--chat--input--text-color, initial);
     outline: none;
+    overflow-y: auto;
 }
 
-/* FIXED Send Button Alignment */
+/* Send Button - INLINE FIX */
 .chat-input-send-button {
     height: var(--chat--textarea--height);
     width: var(--chat--textarea--height);
-    background: var(--chat--input--send--button--background, white);
+    background: var(--chat--input--send--button--background, var(--chat--color-secondary));
     cursor: pointer;
-    color: var(--chat--input--send--button--color, var(--chat--color-secondary));
-    border: 0;
+    color: var(--chat--color-white);
+    border: none;
     font-size: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: color var(--chat--transition-duration) ease;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+    transition: background var(--chat--transition-duration) ease;
+    margin-left: 8px;
+    border-radius: var(--chat--border-radius);
+}
+
+.chat-input-send-button:hover {
+    background: var(--chat--color-secondary-shade-50);
 }
 
 /* Chat Footer */
