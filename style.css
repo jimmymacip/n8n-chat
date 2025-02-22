@@ -36,7 +36,8 @@
     --chat--transition-duration: .15s;
     --chat--window--width: 400px;
     --chat--window--height: 600px;
-    --chat--textarea--height: 40px; /* Reduced height for better alignment */
+    --chat--textarea--height: 50px;
+    --chat--textarea--padding-right: 3rem;
 }
 
 /* Chat Header Styling */
@@ -91,15 +92,14 @@
     padding: var(--chat--spacing);
 }
 
-/* Chat Input Box - INLINE FIX */
+/* Chat Input Box */
 .chat-inputs {
     display: flex;
     align-items: center;
     width: 100%;
-    background: var(--chat--color-white);
-    border-radius: var(--chat--border-radius);
-    padding: 5px;
-    border: 1px solid var(--chat--color-light-shade-100);
+    padding: var(--chat--spacing);
+    border-top: none;
+    background: var(--chat--footer--background, var(--chat--color-light));
 }
 
 .chat-inputs textarea {
@@ -108,39 +108,35 @@
     flex: 1;
     border: none;
     border-radius: var(--chat--border-radius);
-    padding: 0.5rem;
+    padding: 0.8rem;
     min-height: var(--chat--textarea--height);
     background: var(--chat--input--background, white);
     resize: none;
     color: var(--chat--input--text-color, initial);
     outline: none;
-    overflow-y: auto;
 }
 
-/* Send Button - INLINE FIX */
+/* Send Button Styling */
 .chat-input-send-button {
     height: var(--chat--textarea--height);
     width: var(--chat--textarea--height);
     background: var(--chat--input--send--button--background, var(--chat--color-secondary));
     cursor: pointer;
-    color: var(--chat--color-white);
+    color: var(--chat--input--send--button--color, var(--chat--color-white));
     border: none;
     font-size: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background var(--chat--transition-duration) ease;
-    margin-left: 8px;
+    transition: color var(--chat--transition-duration) ease;
+    margin-left: var(--chat--spacing);
     border-radius: var(--chat--border-radius);
-}
-
-.chat-input-send-button:hover {
-    background: var(--chat--color-secondary-shade-50);
 }
 
 /* Chat Footer */
 .chat-layout .chat-footer {
-    border-top: 1px solid var(--chat--color-light-shade-100);
+    border-top: none;
     background: var(--chat--footer--background, var(--chat--color-light));
     color: var(--chat--footer--color, var(--chat--color-dark));
+    padding: var(--chat--spacing);
 }
