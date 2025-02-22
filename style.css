@@ -41,7 +41,12 @@
 }
 
 /* Chat Header Styling */
+
 .chat-layout .chat-header {
+    display: none;
+}
+
+/*.chat-layout .chat-header {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,7 +56,7 @@
     background: var(--chat--color-light);
     color: var(--chat--color-light);
     border-bottom: 3px solid var(--chat--color-light);
-}
+}*/
 
 /* Chat Message Bubbles */
 .chat-message {
