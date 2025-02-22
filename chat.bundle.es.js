@@ -4127,11 +4127,11 @@ const un = {
   chatSessionKey: "sessionId",
   defaultLanguage: "en",
   showWelcomeScreen: !1,
-  initialMessages: ["Hi there! 👋", "My name is Nathan. How can I assist you today?"],
+  initialMessages: ["Hi there! 👋", "My name is Wie Jie. Let's create a great teambuilding event together"],
   i18n: {
     en: {
-      title: "Hi there! 👋",
-      subtitle: "Start a chat. We're here to help you 24/7.",
+      title: "Jambar AI",
+      subtitle: "",
       footer: "",
       getStarted: "New Conversation",
       inputPlaceholder: "Type your question..",
