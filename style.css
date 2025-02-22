@@ -145,6 +145,13 @@
     margin-left: 0.5rem;
 }
 
+@media (max-width: 600px) {
+    .chat-input-send-button {
+        font-size: 28px; /* Adjust icon size inside the button */
+    }
+}
+
+
 /* Chat Footer */
 .chat-layout .chat-footer {
     border-top: 0;
