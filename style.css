@@ -40,8 +40,25 @@
 
     /* FIXED - ADD THIS */
     --chat--textarea--padding-right: 3rem; /* Space for send button */
+
 }
 
+.chat-message.chat-message-from-bot {
+    background-color: var(--chat--message--bot--background);
+    color: var(--chat--message--bot--color);
+    border-radius: var(--chat--message--border-radius, 12px);
+    padding: var(--chat--spacing);
+    max-width: 80%;
+}
+
+.chat-message.chat-message-from-user {
+    background-color: var(--chat--message--user--background);
+    color: var(--chat--message--user--color);
+    border-radius: var(--chat--message--border-radius, 12px);
+    padding: var(--chat--spacing);
+    max-width: 80%;
+    margin-left: auto; /* Align user messages to the right */
+}
 /* FIXED - Chat Message Bubbles */
 .chat-message.chat-message-from-user {
     background-color: var(--chat--message--user--background);
@@ -131,6 +148,32 @@
     overflow-y: auto;
     position: relative;
     min-height: 100px;
+
+}
+
+.chat-inputs {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.chat-inputs textarea {
+    padding-right: 3rem; /* Space for the send button */
+    width: 100%;
+}
+
+.chat-inputs-controls {
+    position: absolute;
+    right: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.chat-get-started-footer {
+    display: flex;
+    justify-content: center;
+    padding: var(--chat--spacing);
 }
 
 /* Chat Footer */
