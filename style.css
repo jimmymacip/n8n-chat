@@ -93,6 +93,13 @@
 }
 
 /* Chat Input Box */
+.chat-inputs {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
 .chat-inputs textarea {
     font-family: inherit;
     font-size: inherit;
@@ -108,7 +115,7 @@
     outline: none;
 }
 
-/* Send Button Styling */
+/* FIXED Send Button Alignment */
 .chat-input-send-button {
     height: var(--chat--textarea--height);
     width: var(--chat--textarea--height);
