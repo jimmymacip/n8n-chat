@@ -1,7 +1,22 @@
 /* Base Styles */
 @charset "UTF-8";
 
-/* Root Variables */
+.n8n-chat pre code.hljs { 
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+}
+
+.n8n-chat code.hljs { 
+    padding: 3px 5px; 
+}
+
+.n8n-chat .hljs {
+    color: #24292e;
+    background: #fff;
+}
+
+/* Color Variables */
 :root {
     --chat--color-primary: #81C146;
     --chat--color-primary-shade-50: #75B03F;
@@ -23,34 +38,19 @@
     --chat--window--height: 600px;
     --chat--textarea--height: 50px;
     --chat--textarea--padding-right: 3rem;
-    --chat--message--border-radius: 12px;
-    --chat--message--box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    --chat--header-border-color: #d3d3d3;
 }
 
-/* Chat Header */
+/* Chat Header Styling */
 .chat-layout .chat-header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 1em;
-    height: var(--chat--header-height, auto);
-    padding: var(--chat--header--padding, var(--chat--spacing));
-    background: var(--chat--header--background, var(--chat--color-dark));
-    color: var(--chat--header--color, var(--chat--color-light));
-    border-bottom: 2px solid var(--chat--header-border-color);
-}
-
-/* Chat Body */
-.chat-layout .chat-body {
-    background: var(--chat--body--background, var(--chat--color-light));
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    position: relative;
-    min-height: 100px;
+    height: auto;
     padding: var(--chat--spacing);
+    background: var(--chat--color-dark);
+    color: var(--chat--color-light);
+    border-bottom: 3px solid var(--chat--color-light);
 }
 
 /* Chat Message Bubbles */
@@ -59,48 +59,56 @@
     position: relative;
     max-width: 80%;
     font-size: 1rem;
-    padding: var(--chat--spacing);
-    border-radius: var(--chat--message--border-radius);
-    margin-bottom: var(--chat--spacing);
-    box-shadow: var(--chat--message--box-shadow);
+    padding: 1rem;
+    border-radius: var(--chat--border-radius);
+    margin-bottom: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .chat-message.chat-message-from-user {
     background-color: var(--chat--message--user--background, var(--chat--color-secondary));
     color: var(--chat--message--user--color, var(--chat--color-white));
     margin-left: auto;
+    text-align: left;
 }
 
 .chat-message.chat-message-from-bot {
     background-color: var(--chat--message--bot--background, var(--chat--color-white));
     color: var(--chat--message--bot--color, var(--chat--color-dark));
     margin-right: auto;
+    text-align: left;
+}
+
+/* Chat Body - Enables scrolling */
+.chat-layout .chat-body {
+    background: var(--chat--body--background, var(--chat--color-light));
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    position: relative;
+    min-height: 100px;
+    max-height: 400px;
+    padding: var(--chat--spacing);
 }
 
 /* Chat Input Box */
-.chat-inputs {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    position: relative;
-}
-
 .chat-inputs textarea {
     font-family: inherit;
     font-size: inherit;
     width: 100%;
-    border: 1px solid var(--chat--color-light-shade-100);
+    border: 0;
     border-radius: var(--chat--border-radius);
     padding: 0.8rem;
     padding-right: 3rem;
     min-height: var(--chat--textarea--height);
     background: var(--chat--input--background, white);
     resize: none;
-    color: initial;
+    color: var(--chat--input--text-color, initial);
     outline: none;
 }
 
-/* Send Button */
+/* Send Button Styling */
 .chat-input-send-button {
     height: var(--chat--textarea--height);
     width: var(--chat--textarea--height);
@@ -119,23 +127,9 @@
     transform: translateY(-50%);
 }
 
-/* New Conversation Button */
-.chat-get-started-footer {
-    display: flex;
-    justify-content: center;
-    padding: var(--chat--spacing);
-}
-
-/* Footer */
+/* Chat Footer */
 .chat-layout .chat-footer {
     border-top: 1px solid var(--chat--color-light-shade-100);
     background: var(--chat--footer--background, var(--chat--color-light));
     color: var(--chat--footer--color, var(--chat--color-dark));
-}
-
-/* Mobile Adjustments */
-@media (max-width: 600px) {
-    .chat-input-send-button {
-        right: 5px;
-    }
 }
