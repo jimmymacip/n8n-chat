@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
 /* Base Styles */
-.n8n-chat pre code.hljs { 
+.n8n-chat pre code.hljs {
     display: block;
     overflow-x: auto;
     padding: 1em;
 }
 
-.n8n-chat code.hljs { 
-    padding: 3px 5px; 
+.n8n-chat code.hljs {
+    padding: 3px 5px;
 }
 
 .n8n-chat .hljs {
@@ -37,93 +37,78 @@
     --chat--window--width: 400px;
     --chat--window--height: 600px;
     --chat--textarea--height: 50px;
-
-    /* FIXED - ADD THIS */
     --chat--textarea--padding-right: 3rem; /* Space for send button */
-
+    
+    /* Chat Message Bubbles */
+    --chat--message--bot--background: var(--chat--color-white);
+    --chat--message--bot--color: var(--chat--color-dark);
+    --chat--message--user--background: var(--chat--color-secondary);
+    --chat--message--user--color: var(--chat--color-white);
+    --chat--message--border-radius: 12px; /* Rounded chat bubbles */
 }
 
-.chat-message.chat-message-from-bot {
-    background-color: var(--chat--message--bot--background);
-    color: var(--chat--message--bot--color);
-    border-radius: var(--chat--message--border-radius, 12px);
-    padding: var(--chat--spacing);
-    max-width: 80%;
-}
-
-.chat-message.chat-message-from-user {
-    background-color: var(--chat--message--user--background);
-    color: var(--chat--message--user--color);
-    border-radius: var(--chat--message--border-radius, 12px);
-    padding: var(--chat--spacing);
-    max-width: 80%;
-    margin-left: auto; /* Align user messages to the right */
-}
-/* FIXED - Chat Message Bubbles */
-.chat-message.chat-message-from-user {
-    background-color: var(--chat--message--user--background);
-    color: var(--chat--message--user--color);
-    padding: var(--chat--message--padding, 1rem);
-    border-radius: var(--chat--message--border-radius, 12px);
-    max-width: 80%;
-    margin-left: auto;
-    text-align: left; /* Ensure text is aligned properly */
-}
-
-.chat-message.chat-message-from-bot {
-    background-color: var(--chat--message--bot--background);
-    color: var(--chat--message--bot--color);
-    padding: var(--chat--message--padding, 1rem);
-    border-radius: var(--chat--message--border-radius, 12px);
-    max-width: 80%;
-    margin-right: auto;
-    text-align: left;
-}
-
-/* FIXED - Chat Input Box */
-.chat-inputs textarea {
-    font-family: inherit;
-    font-size: var(--chat--input--font-size, inherit);
-    width: 100%;
-    border: var(--chat--input--border, 0);
-    border-radius: var(--chat--input--border-radius, 0);
-    padding: 0.8rem;
-    padding-right: 3rem; /* Space for send button */
-    min-height: var(--chat--textarea--height);
-    background: var(--chat--input--background, white);
-    resize: var(--chat--textarea--resize, none);
-    color: var(--chat--input--text-color, initial);
-    outline: none;
-}
-
-/* FIXED - Send Button Alignment */
-.chat-input-send-button {
-    height: var(--chat--textarea--height);
-    width: var(--chat--textarea--height);
-    background: var(--chat--input--send--button--background, white);
-    cursor: pointer;
-    color: var(--chat--input--send--button--color, var(--chat--color-secondary));
-    border: 0;
-    font-size: 24px;
-    display: flex; /* Fix alignment */
-    align-items: center;
-    justify-content: center;
-    transition: color var(--chat--transition-duration) ease;
-    position: absolute; /* Align inside input box */
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-/* FIXED - Ensure Messages Stack Properly */
+/* Chat Message Styling */
 .chat-message {
     display: block;
     position: relative;
     max-width: 80%;
     font-size: 1rem;
-    padding: 1rem;
-    border-radius: 12px;
+    padding: var(--chat--spacing);
+    border-radius: var(--chat--message--border-radius);
     margin-bottom: 8px;
+}
+
+.chat-message.chat-message-from-bot {
+    background-color: var(--chat--message--bot--background) !important;
+    color: var(--chat--message--bot--color) !important;
+    max-width: 80%;
+    margin-right: auto;
+    text-align: left;
+    border-radius: var(--chat--message--border-radius) !important;
+}
+
+.chat-message.chat-message-from-user {
+    background-color: var(--chat--message--user--background) !important;
+    color: var(--chat--message--user--color) !important;
+    max-width: 80%;
+    margin-left: auto;
+    text-align: left;
+    border-radius: var(--chat--message--border-radius) !important;
+}
+
+/* Chat Input Box */
+.chat-inputs textarea {
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 0.8rem;
+    padding-right: 3rem; /* Space for send button */
+    min-height: var(--chat--textarea--height);
+    background: white;
+    resize: none;
+    color: initial;
+    outline: none;
+}
+
+/* Send Button Styling */
+.chat-input-send-button {
+    height: var(--chat--textarea--height);
+    width: var(--chat--textarea--height);
+    background: white;
+    cursor: pointer;
+    color: var(--chat--color-secondary);
+    border: 0;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--chat--transition-duration) ease;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* Chat Header */
@@ -132,35 +117,29 @@
     flex-direction: column;
     justify-content: center;
     gap: 1em;
-    height: var(--chat--header-height, auto);
-    padding: var(--chat--header--padding, var(--chat--spacing));
-    background: var(--chat--header--background, var(--chat--color-dark));
-    color: var(--chat--header--color, var(--chat--color-light));
-    border-top: var(--chat--header--border-top, none);
+    height: auto;
+    padding: var(--chat--spacing);
+    background: var(--chat--color-dark);
+    color: var(--chat--color-light);
 }
 
 /* Chat Body */
 .chat-layout .chat-body {
-    background: var(--chat--body--background, var(--chat--color-light));
+    background: var(--chat--color-light);
     flex: 1;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     position: relative;
     min-height: 100px;
-
 }
 
+/* Chat Input Section */
 .chat-inputs {
     display: flex;
     align-items: center;
     width: 100%;
     position: relative;
-}
-
-.chat-inputs textarea {
-    padding-right: 3rem; /* Space for the send button */
-    width: 100%;
 }
 
 .chat-inputs-controls {
@@ -170,31 +149,14 @@
     align-items: center;
 }
 
-.chat-get-started-footer {
-    display: flex;
-    justify-content: center;
-    padding: var(--chat--spacing);
-}
-
 /* Chat Footer */
 .chat-layout .chat-footer {
     border-top: 1px solid var(--chat--color-light-shade-100);
-    background: var(--chat--footer--background, var(--chat--color-light));
-    color: var(--chat--footer--color, var(--chat--color-dark));
+    background: var(--chat--color-light);
+    color: var(--chat--color-dark);
 }
 
-/* FIXED - Ensure Chat Bubbles Don't Disappear */
-.chat-message.chat-message-from-bot:not(.chat-message-transparent) {
-    background-color: var(--chat--message--bot--background);
-    border: var(--chat--message--bot--border, none);
-}
-
-.chat-message.chat-message-from-user:not(.chat-message-transparent) {
-    background-color: var(--chat--message--user--background);
-    border: var(--chat--message--user--border, none);
-}
-
-/* FIXED - Adjustments for mobile */
+/* Adjustments for mobile */
 @media (max-width: 600px) {
     .chat-input-send-button {
         right: 5px;
