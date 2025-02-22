@@ -48,7 +48,7 @@
     gap: 1em;
     height: auto;
     padding: var(--chat--spacing);
-    background: var(--chat--color-dark);
+    background: var(--chat--color-light);
     color: var(--chat--color-light);
     border-bottom: 3px solid var(--chat--color-light);
 }
