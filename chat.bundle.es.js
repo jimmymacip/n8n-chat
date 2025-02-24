@@ -4127,7 +4127,7 @@ const un = {
   chatSessionKey: "sessionId",
   defaultLanguage: "en",
   showWelcomeScreen: !1,
-  initialMessages: ["Hi there! 👋", "My name is Wie Jie. Let's create a great teambuilding event together"],
+  initialMessages: ["Hi there. 👋", "My name is Wie Jie. Let's create a great teambuilding event together!"],
   i18n: {
     en: {
       title: "Jambar AI",
