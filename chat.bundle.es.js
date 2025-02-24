@@ -6367,8 +6367,8 @@ const Jh = { class: "chat-get-started" }, Yh = /* @__PURE__ */ Ve({
 }), Xh = {}, Qh = { class: "chat-powered-by" }, ep = /* @__PURE__ */ he("a", { href: "https://n8n.io?utm_source=n8n-external&utm_medium=widget-powered-by" }, "n8n", -1);
 function tp(t, e) {
   return Z(), ce("div", Qh, [
-    Zs(" Powered by "),
-    ep
+    //Zs(" Powered by "),//
+    // ep                //
   ]);
 }
 const np = /* @__PURE__ */ Sr(Xh, [["render", tp]]), rp = { class: "chat-get-started-footer" }, sp = { key: 0 }, op = /* @__PURE__ */ Ve({
