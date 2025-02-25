@@ -160,37 +160,73 @@
     padding: 1rem;
 }
 
-.typing-indicator {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.chat-message-typing {
+    max-width: 80px;
 }
 
-.typing-indicator span {
-  width: 8px;
-  height: 8px;
-  background-color: #999;
-  border-radius: 50%;
-  animation: typing 1.5s infinite ease-in-out;
+.chat-message-typing.chat-message-typing-animation-scaling .chat-message-typing-circle {
+    animation: chat-message-typing-animation-scaling .8s ease-in-out infinite;
+    animation-delay: 3.6s;
 }
 
-.typing-indicator span:nth-child(1) {
-  animation-delay: 0s;
-}
-.typing-indicator span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.typing-indicator span:nth-child(3) {
-  animation-delay: 0.4s;
+.chat-message-typing.chat-message-typing-animation-bouncing .chat-message-typing-circle {
+    animation: chat-message-typing-animation-bouncing .8s ease-in-out infinite;
+    animation-delay: 3.6s;
 }
 
-@keyframes typing {
-  0%, 80%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  40% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
+.chat-message-typing .chat-message-typing-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-message-typing .chat-message-typing-circle {
+    display: block;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: var(--chat--color-typing);
+    margin: 3px;
+}
+
+.chat-message-typing .chat-message-typing-circle:nth-child(1) {
+    animation-delay: 0ms;
+}
+
+.chat-message-typing .chat-message-typing-circle:nth-child(2) {
+    animation-delay: 333ms;
+}
+
+.chat-message-typing .chat-message-typing-circle:nth-child(3) {
+    animation-delay: 666ms;
+}
+
+@keyframes chat-message-typing-animation-scaling {
+    0% {
+        transform: scale(1);
+    }
+    33% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes chat-message-typing-animation-bouncing {
+    0% {
+        transform: translateY(0);
+    }
+    33% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
